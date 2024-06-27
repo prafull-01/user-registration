@@ -14,11 +14,11 @@ const registerUser = async (req, res) => {
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
     user.otp = otp;
     await user.save();
-    await sendEmail({
-      email: user.email,
-      subject: "Account Verification",
-      message: `Your OTP is ${otp}. Please enter this OTP to verify your account`,
-    });
+    // await sendEmail({
+    //   email: user.email,
+    //   subject: "Account Verification",
+    //   message: `Your OTP is ${otp}. Please enter this OTP to verify your account`,
+    // });
     res.json({ message: "Registration successful. Check your email for OTP" });
   } catch (error) {
     console.log(error);
